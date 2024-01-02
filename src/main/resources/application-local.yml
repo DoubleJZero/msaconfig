@@ -1,0 +1,29 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/DoubleJZero/msaConfigFolder.git
+          default-label: main
+          #uri: git@github.com:DoubleJZero/msaConfigFolder.git
+          #ignore-local-ssh-settings: trueex
+          #private-key: |
+            #-----BEGIN OPENSSH PRIVATE KEY-----
+            #-----END OPENSSH PRIVATE KEY-----
+          #default-label: main
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    registryFetchIntervalSeconds: 5
+    disable-delta: true
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
